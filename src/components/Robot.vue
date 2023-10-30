@@ -60,7 +60,7 @@ const sendMessage = () => {
   } else if (text !== "") {
     messages.value.push({
       type: "right_word",
-      icon: "/src/assets/user.png",
+      icon: userIcon,
       content: text,
     });
     inputMsg.value = "";
@@ -88,7 +88,7 @@ const postChatGpt = (text) => {
         const msg = res.choices[0].message.content;
         messages.value.push({
           type: "left_word",
-          icon: userIcon,
+          icon: robotIcon,
           content: msg,
         });
         nextTick(() => resetUI());
