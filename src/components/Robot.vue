@@ -36,6 +36,8 @@
 <script setup>
 import axios from "axios";
 import { ref, nextTick } from "vue";
+import robotIcon from "../assets/robot.png";
+import userIcon from "../assets/user.png";
 
 const isInputDisabled = ref(false);
 const chatMain = ref(null);
@@ -43,7 +45,7 @@ const key = import.meta.env.VITE_KEY;
 const messages = ref([
   {
     type: "left_word",
-    icon: "/src/assets/robot.png",
+    icon: robotIcon,
     content: "嗨~，来和我聊天吧！",
   },
 ]);
@@ -86,7 +88,7 @@ const postChatGpt = (text) => {
         const msg = res.choices[0].message.content;
         messages.value.push({
           type: "left_word",
-          icon: "/src/assets/robot.png",
+          icon: userIcon,
           content: msg,
         });
         nextTick(() => resetUI());
